@@ -15,7 +15,7 @@
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst ReactDOM = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\n//# sourceURL=webpack://react-functional-components/./client/example3.jsx?");
+eval("const React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst ReactDOM = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\nconst SongContainer = props => {\n  if (props.songs.length === 0) {\n    return /*#__PURE__*/React.createElement(\"div\", null, /*#__PURE__*/React.createElement(\"h3\", null, \"No Songs Yet!\"));\n  }\n  const songList = props.songs.map(song => {\n    return /*#__PURE__*/React.createElement(\"div\", {\n      key: song.title\n    }, /*#__PURE__*/React.createElement(\"h2\", null, song.artist, \" - \", /*#__PURE__*/React.createElement(\"i\", null, song.title)));\n  });\n  return /*#__PURE__*/React.createElement(\"div\", null, /*#__PURE__*/React.createElement(\"h1\", null, \"My Favorite Songs!\"), songList);\n};\nconst loadSongsFromServer = async () => {\n  const response = await fetch('/getSongs');\n  const songs = await response.json();\n  ReactDOM.render( /*#__PURE__*/React.createElement(SongContainer, {\n    songs: songs\n  }), document.getElementById('app'));\n};\nconst init = () => {\n  ReactDOM.render( /*#__PURE__*/React.createElement(SongContainer, {\n    songs: []\n  }), document.getElementById('app'));\n  loadSongsFromServer();\n};\nwindow.onload = init;\n\n//# sourceURL=webpack://react-functional-components/./client/example3.jsx?");
 
 /***/ }),
 
